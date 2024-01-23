@@ -10,32 +10,17 @@ namespace Exercises
     {
         static void Main(string[] args)
         {
-            double result = 0;
-            do
+
+            try
+            {
+                var manage = new BankManagment();
+                manage.Transfer("guga123", "gugaguga", 2, 7889);
+            }
+            catch (Exception exp)
             {
 
-                try
-                {
-                    Console.WriteLine("Shemoitane  ricxvi ");
-                    int ricx = int.Parse(Console.ReadLine());
-                    result = 10 / ricx;
-                    Console.WriteLine(result);
-
-                }
-                catch (FormatException exp)
-                {
-
-                    Console.WriteLine(exp.Message);
-                }
-                catch (DivideByZeroException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            } while (result == 0);
+                Console.WriteLine( exp);
+            }
         }
     }
 }

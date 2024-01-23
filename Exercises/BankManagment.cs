@@ -36,6 +36,8 @@ namespace Exercises
         public bool Transfer(string username,string password,int touserid, double  howmuch)
         {
            var sender= SignIn(username, password);
+            if (sender == null)
+                throw new NoSuchUserExistException();
             var senderbank = _listofaccounts.Where(io => io.UserID == sender.userid).FirstOrDefault();
             if (senderbank.Balance < howmuch) throw new NoEnoughtBalanceException();
             senderbank.Balance -= howmuch;
